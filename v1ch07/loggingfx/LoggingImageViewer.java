@@ -15,30 +15,25 @@ import javafx.stage.FileChooser.*;
 
 /**
  * A modification of the image viewer program that logs various events.
+ * 
  * @version 1.10 2017-12-14
  * @author Cay Horstmann
  */
-public class LoggingImageViewer extends Application
-{
+public class LoggingImageViewer extends TodoApp {
    private static final int MIN_SIZE = 400;
    private Logger logger = Logger.getLogger("com.horstmann.corejava");
 
-   public void start(Stage stage) throws IOException
-   {
+   public void start(Stage stage) throws IOException {
       if (System.getProperty("java.util.logging.config.class") == null
-            && System.getProperty("java.util.logging.config.file") == null)
-      {
-         try
-         {
+            && System.getProperty("java.util.logging.config.file") == null) {
+         try {
             logger.setLevel(Level.ALL);
             final int LOG_ROTATION_COUNT = 10;
             Handler handler = new FileHandler("%h/LoggingImageViewer.log", 0,
                   LOG_ROTATION_COUNT);
             logger.addHandler(handler);
             handler.setLevel(Level.ALL);
-         }
-         catch (IOException e)
-         {
+         } catch (IOException e) {
             logger.log(Level.SEVERE, "Can't create log file handler", e);
          }
       }
@@ -63,11 +58,11 @@ public class LoggingImageViewer extends Application
 
    /**
     * Loads an image.
+    * 
     * @param stage the stage above which to place the file chooser
-    * @param pane the pane into which to place the image view
+    * @param pane  the pane into which to place the image view
     */
-   public void load(Stage stage, BorderPane pane)
-   {
+   public void load(Stage stage, BorderPane pane) {
       logger.entering("LoggingImageViewerFrame", "load",
             new Object[] { stage, pane });
       FileChooser fileChooser = new FileChooser();
@@ -76,19 +71,15 @@ public class LoggingImageViewer extends Application
             new ExtensionFilter("All Files", "*.*"));
       File file = fileChooser.showOpenDialog(stage);
       logger.fine("Selected file: " + file);
-      if (file != null)
-      {
-         try
-         {
+      if (file != null) {
+         try {
             Path path = file.toPath();
             Image image = new Image(Files.newInputStream(path));
             pane.setCenter(new ImageView(image));
-         }
-         catch (IOException e)
-         {
+         } catch (IOException e) {
             logger.log(Level.FINE, "File not found", e);
             Alert alert = new Alert(AlertType.ERROR,
-               "Cannot open file.");
+                  "Cannot open file.");
             alert.showAndWait();
          }
       }
@@ -99,10 +90,8 @@ public class LoggingImageViewer extends Application
 /**
  * A handler for displaying log records in a window.
  */
-class WindowHandler extends StreamHandler
-{
-   public WindowHandler(Stage parent, Level level)
-   {
+class WindowHandler extends StreamHandler {
+   public WindowHandler(Stage parent, Level level) {
       setLevel(level);
       TextArea output = new TextArea();
       output.setEditable(false);
@@ -113,22 +102,18 @@ class WindowHandler extends StreamHandler
       stage.setY(100);
 
       stage.show();
-      setOutputStream(new OutputStream()
-      {
-         public void write(int b)
-         {
+      setOutputStream(new OutputStream() {
+         public void write(int b) {
             // not called
          }
 
-         public void write(byte[] b, int off, int len)
-         {
+         public void write(byte[] b, int off, int len) {
             output.appendText(new String(b, off, len));
          }
       });
    }
 
-   public void publish(LogRecord record)
-   {
+   public void publish(LogRecord record) {
       super.publish(record);
       flush();
    }

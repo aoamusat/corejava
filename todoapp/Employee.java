@@ -1,4 +1,4 @@
-package com.hexcore.lib;
+package todoapp;
 
 public class Employee {
     private String name;
