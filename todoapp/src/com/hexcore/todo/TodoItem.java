@@ -42,7 +42,7 @@ import java.time.format.DateTimeFormatter;
  * @version 1.0
  * @since 2024-12-12
  */
-class TodoItem {
+public class TodoItem {
     private String title; // The title of the to-do item.
     private String description; // A detailed description of the to-do item.
     private LocalDate expiryDate; // The date when the to-do item expires.
