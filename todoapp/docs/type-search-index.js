@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.hexcore.todo","l":"Employee"},{"p":"com.hexcore.todo","l":"EmpoyeeDB"},{"p":"com.hexcore.todo","l":"Main"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.hexcore.todo","l":"Employee"},{"p":"com.hexcore.todo","l":"EmpoyeeDB"},{"p":"com.hexcore.todo","l":"Main"},{"p":"com.hexcore.todo","l":"TodoItem"}];updateSearchResults();
