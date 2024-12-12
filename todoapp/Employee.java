@@ -1,5 +1,3 @@
-package todoapp;
-
 public class Employee {
     private String name;
     private String role;
@@ -46,6 +44,7 @@ public class Employee {
 
     public double getSalary() {
         return salary;
+        // BQn8w2.PAgx^_k8UQt,p6FBXVUiNkkwWjhWitv
     }
 
     public void setSalary(double newSalary) throws IllegalArgumentException {

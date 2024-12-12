@@ -1,14 +1,12 @@
-package todoapp;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-class Todo {
+class TodoItem {
     private String title;
     private String description;
     private LocalDate expiryDate;
 
-    public Todo(String title, String description, LocalDate expiryDate) {
+    public TodoItem(String title, String description, LocalDate expiryDate) {
         this.title = title;
         this.description = description;
         this.expiryDate = expiryDate;

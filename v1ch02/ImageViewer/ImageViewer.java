@@ -4,33 +4,29 @@ import javax.swing.*;
 
 /**
  * A program for viewing images.
+ * 
  * @version 1.31 2018-04-10
  * @author Cay Horstmann
  */
-public class ImageViewer
-{
-   public static void main(String[] args)
-   {
-      EventQueue.invokeLater(() ->
-         {
-            var frame = new ImageViewerFrame();
-            frame.setTitle("ImageViewer");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setVisible(true);
-         });
+public class ImageViewer {
+   public static void main(String[] args) {
+      EventQueue.invokeLater(() -> {
+         var frame = new ImageViewerFrame();
+         frame.setTitle("ImageViewer");
+         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         frame.setVisible(true);
+      });
    }
 }
 
 /**
  * A frame with a label to show an image.
  */
-class ImageViewerFrame extends JFrame
-{
+class ImageViewerFrame extends JFrame {
    private static final int DEFAULT_WIDTH = 300;
    private static final int DEFAULT_HEIGHT = 400;
 
-   public ImageViewerFrame()
-   {
+   public ImageViewerFrame() {
       setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 
       // use a label to display the images
@@ -46,22 +42,25 @@ class ImageViewerFrame extends JFrame
       setJMenuBar(menuBar);
 
       var menu = new JMenu("File");
+      var aboutMenu = new JMenu("About ImageViewer");
+      var quitMenu = new JMenu("Quit ImageViewer");
+
       menuBar.add(menu);
+      menuBar.add(aboutMenu);
+      menuBar.add(quitMenu);
 
       var openItem = new JMenuItem("Open");
       menu.add(openItem);
-      openItem.addActionListener(event ->
-         {
-            // show file chooser dialog
-            int result = chooser.showOpenDialog(null);
+      openItem.addActionListener(event -> {
+         // show file chooser dialog
+         int result = chooser.showOpenDialog(null);
 
-            // if file selected, set it as icon of the label
-            if (result == JFileChooser.APPROVE_OPTION)
-            {
-               String name = chooser.getSelectedFile().getPath();
-               label.setIcon(new ImageIcon(name));
-            }
-         });
+         // if file selected, set it as icon of the label
+         if (result == JFileChooser.APPROVE_OPTION) {
+            String name = chooser.getSelectedFile().getPath();
+            label.setIcon(new ImageIcon(name));
+         }
+      });
 
       var exitItem = new JMenuItem("Exit");
       menu.add(exitItem);
