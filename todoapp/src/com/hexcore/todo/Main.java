@@ -1,6 +1,8 @@
+package com.hexcore.todo;
+
 import java.time.LocalDate;
 
-public class TodoApp {
+public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to the Hexcore Todo App");
         String taskDescription = """
