@@ -3,6 +3,37 @@ package com.hexcore.todo;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * EmpoyeeDB is a class that simulates a simple database for storing and
+ * managing employee records.
+ * It provides methods to retrieve an employee by their ID, retrieve all
+ * employees, and update an employee's salary.
+ * The database is represented by a HashMap where the key is the employee's ID
+ * (Integer) and the value is the Employee object.
+ *
+ * <p>
+ * This class includes a constructor that initializes the database with sample
+ * employee data and the following methods:
+ * <ul>
+ * <li><b>getEmployeeById(int id):</b> Returns the employee object associated
+ * with the given ID. Returns null if the ID does not exist in the
+ * database.</li>
+ * <li><b>getAllEmployees():</b> Returns a new HashMap containing all employees
+ * stored in the database.</li>
+ * <li><b>updateEmployeeSalary(int id, double newSalary):</b> Updates the salary
+ * of the employee with the given ID. Throws an IllegalArgumentException if the
+ * employee with the given ID does not exist.</li>
+ * </ul>
+ * 
+ * <p>
+ * Example usage:
+ * 
+ * <pre>
+ * EmpoyeeDB db = new EmpoyeeDB();
+ * Employee employee = db.getEmployeeById(1);
+ * db.updateEmployeeSalary(1, 50000);
+ * </pre>
+ */
 public class EmpoyeeDB {
     private final Map<Integer, Employee> employees;
 
