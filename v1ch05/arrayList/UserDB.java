@@ -20,7 +20,7 @@ public class UserDB {
             System.out.println("\nPress 1 to add a user to the list");
             System.out.println("Press 2 to display users from the list");
             System.out.println("Press 3 to quit");
-            System.out.print("Please enter a command: ");
+            System.out.print("\nPlease enter a command: ");
 
             // Validate input
             if (!commandScanner.hasNextInt()) {
@@ -53,15 +53,15 @@ public class UserDB {
         String username = scanner.nextLine();
 
         if (userList.contains(username)) {
-            System.out.println("Username already exists. Please try another.");
+            System.out.println("\nUsername already exists. Please try another.");
         } else {
             userList.add(username);
-            System.out.println("Username added successfully.");
+            System.out.println("\nUsername added successfully.");
         }
     }
 
     private static void quitApplication() {
-        System.out.println("Thank you for using the application.");
+        System.out.println("\nThank you for using the application.");
         System.exit(0);
     }
 
@@ -69,7 +69,7 @@ public class UserDB {
         if (userList.isEmpty()) {
             System.out.println("No users in the list.");
         } else {
-            System.out.println("User List:");
+            System.out.println("\nUser List:");
             for (String username : userList) {
                 System.out.println("- " + username);
             }
