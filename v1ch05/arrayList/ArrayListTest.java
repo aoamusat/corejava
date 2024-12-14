@@ -1,16 +1,16 @@
 package arrayList;
 
+import java.math.BigInteger;
 import java.util.*;
 
 /**
  * This program demonstrates the ArrayList class.
+ * 
  * @version 1.11 2012-01-26
  * @author Cay Horstmann
  */
-public class ArrayListTest
-{
-   public static void main(String[] args)
-   {
+public class ArrayListTest {
+   public static void main(String[] args) {
       // fill the staff array list with three Employee objects
       var staff = new ArrayList<Employee>();
 
@@ -24,7 +24,7 @@ public class ArrayListTest
 
       // print out information about all Employee objects
       for (Employee e : staff)
-         System.out.println("name=" + e.getName() + ",salary=" + e.getSalary() + ",hireDay=" 
-            + e.getHireDay());
+         System.out.println("name=" + e.getName() + ",salary=" + e.getSalary() + ",hireDay="
+               + e.getHireDay());
    }
 }
